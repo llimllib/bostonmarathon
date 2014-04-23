@@ -1,4 +1,4 @@
 notebook:
-	ipython notebook --pylab --notebook-dir=.
+	ipython notebook --notebook-dir=.
 
 .PHONY: notebook
