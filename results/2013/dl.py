@@ -23,7 +23,7 @@ def getbib(bib):
 
     bib, name, age, gender, city, state, country, ctz, _ = [t.text.strip() for t in rows[1].findAll("td")]
 
-    k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, gender, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
+    k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, genderdiv, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
 
     return {
         "5k": k5,
@@ -37,11 +37,12 @@ def getbib(bib):
         "pace": pace,
         "official": official,
         "overall": overall,
-        "gender": gender,
+        "genderdiv": genderdiv,
         "division": division,
         "bib": bib,
         "name": name,
         "age": age,
+        "gender": gender,
         "city": city,
         "state": state,
         "country": country,
@@ -112,8 +113,8 @@ def main():
 
         # the rest of the runners have # bibs
         print "the field"
-        start = max([int(x) for x in results.keys() if isinstance(x, int)] + [1])
-        results.update(getlist(range(start, 50000)))
+        start = max([int(x) for x in results.keys() if x.isdigit()] + [1])
+        results.update(getlist([str(x) for x in range(start, 50000)]))
 
     except PartialResultsError, e:
         results.update(e.results)
