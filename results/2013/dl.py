@@ -8,14 +8,22 @@ from bs4 import BeautifulSoup
 
 SEARCHURL = 'http://raceday.baa.org/2013/cf/public/iframe_ResultsSearch.cfm?mode=results'
 
-def getbib(bib):
+def getbib(bib, backoff=1):
     """Get data for a bib number
 
-    raises ConnectionError if there's trouble downloading the data
     raises ValueError if no runner with that bib number was found"""
-    r = requests.post(SEARCHURL, {"BibNumber": bib})
-    if r.status_code != 200:
-        raise requests.ConnectionError
+    try:
+        r = requests.post(SEARCHURL, {"BibNumber": bib})
+        if r.status_code != 200:
+            raise requests.ConnectionError
+    except requests.ConnectionError:
+        print "failed on {}, backing off for {}".format(bib, backoff)
+        if backoff < 128:
+            time.sleep(backoff)
+            return getbib(backoff, backoff*2)
+        else:
+            print "completely unable to parse {}".format(bib)
+            return {}
 
     soup = BeautifulSoup(r.text)
     table = soup.find("table", attrs={"class": "tablegrid_table"})
@@ -73,13 +81,8 @@ def getlist(lst, start=1):
 
             try:
                 result = getbib(elt)
-            except requests.ConnectionError:
-                print "failed on {}, backing off for {}".format(elt, backoff)
-                time.sleep(backoff)
-                backoff *= 2
-                continue
             except ValueError:
-                #if there's no runner with that bib number, we should get here
+                #if there's no runner with that bib number, skip ahead
                 continue
 
             backoff = 1
@@ -102,18 +105,18 @@ def main():
 
     try:
         # the elite women have f# bibs
-        print "elite women"
         fstart = max([int(x[1:]) for x in results.keys() if x.startswith("f")] + [1])
-        results = getlist(['f%s'%i for i in range(fstart, 500)])
+        print "elite women, starting at {}".format(fstart)
+        results.update(getlist(['f%s'%i for i in range(fstart, 500)]))
 
         ## the wheelchair runners have w# bibs
-        print "wheelchair racers"
         wstart = max([int(x[1:]) for x in results.keys() if x.startswith("w")] + [1])
+        print "wheelchair racers, starting at {}".format(wstart)
         results.update(getlist(['w%s'%i for i in range(wstart, 500)]))
 
         # the rest of the runners have # bibs
-        print "the field"
         start = max([int(x) for x in results.keys() if x.isdigit()] + [1])
+        print "the field, starting at {}".format(start)
         results.update(getlist([str(x) for x in range(start, 50000)]))
 
     except PartialResultsError, e:
