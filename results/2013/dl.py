@@ -120,6 +120,11 @@ def main():
         cPickle.dump(results, open("results.partial.pkl", 'w'))
         raise e.original_exc, None, e.traceback
 
+    # if we happen to break in between getlist() calls, dump the results
+    except:
+        cPickle.dump(results, open("results.partial.pkl", 'w'))
+        raise
+
     cPickle.dump(results, open("results.pkl", 'w'))
 
 if __name__ == "__main__":
