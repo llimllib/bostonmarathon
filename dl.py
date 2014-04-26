@@ -8,14 +8,17 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-SEARCHURL = 'http://raceday.baa.org/2013/cf/public/iframe_ResultsSearch.cfm?mode=results'
+ARCHIVEURL = 'http://registration.baa.org/cfm_Archive/iframe_ArchiveSearch.cfm'
+_2014URL = 'http://raceday.baa.org/2014/cf/public/iframe_ResultsSearch.cfm?mode=results'
 
 def getbib(bib, year, backoff=1):
     """Get data for a bib number
 
     raises ValueError if no runner with that bib number was found"""
+    url = _2014URL if year == "2014" else ARCHIVEURL
+
     try:
-        r = requests.post(SEARCHURL, {"BibNumber": bib, "RaceYearLowID": year, "RaceYearHighID": 0})
+        r = requests.post(url, {"BibNumber": bib, "RaceYearLowID": year, "RaceYearHighID": 0})
         if r.status_code != 200:
             raise requests.ConnectionError
     except requests.ConnectionError:
@@ -73,7 +76,7 @@ def getlist(lst, year):
     results = {}
     try:
         for (i, elt) in enumerate(lst):
-            if i>0 and i%100 == 0:
+            if i>0 and i%300 == 0:
                 # if we go through 100 bib #s and don't find a new one, assume we're done
                 if last == len(results):
                     print "breaking, no new runners found"
@@ -117,7 +120,7 @@ def main(year):
         print "elite women, starting at {}".format(fstart)
         results.update(getlist(['f%s'%i for i in range(fstart, 500)], year))
 
-        ## the wheelchair runners have w# bibs
+        # the wheelchair runners have w# bibs
         wstart = max([int(x[1:]) for x in results.keys() if x.startswith("w")] + [1])
         print "wheelchair racers, starting at {}".format(wstart)
         results.update(getlist(['w%s'%i for i in range(wstart, 500)], year))
@@ -138,6 +141,7 @@ def main(year):
         raise
 
     cPickle.dump(results, open(full, 'w'))
+    cPickle.dump(results, open(partial, 'w'))
 
 if __name__ == "__main__":
     year = sys.argv[-1]
