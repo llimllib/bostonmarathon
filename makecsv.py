@@ -3,7 +3,17 @@
 import cPickle
 import csv
 import os
+import re
 import sys
+
+TIME_RE = re.compile("^\d+:")
+
+def minutes(time):
+    """Convert a race time into minutes
+
+    given a time in the format hh:mm:ss, return the number of minutes"""
+    parts = [int(x) for x in time.split(':')]
+    return parts[0] * 60 + parts[1] + parts[2]/60.
 
 def main(year):
     dir_ = "results/{}".format(year)
@@ -19,7 +29,12 @@ def main(year):
     csvout.writerow(cols)
 
     for key in sorted(results):
-        row = [results[key][col].encode("utf8") for col in cols]
+        row = []
+        for col in cols:
+            dat = results[key][col].encode("utf8")
+            if TIME_RE.match(dat):
+                dat = "{:.2f}".format(minutes(dat))
+            row.append(dat)
         assert len(row) == len(cols)
         csvout.writerow(row)
 
