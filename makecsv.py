@@ -15,6 +15,12 @@ def minutes(time):
     parts = [int(x) for x in time.split(':')]
     return parts[0] * 60 + parts[1] + parts[2]/60.
 
+def bibsort(a):
+    try:
+        return int(a)
+    except:
+        return int(a[1:])
+
 def main(year):
     dir_ = "results/{}".format(year)
     if not os.path.isdir(dir_):
@@ -28,7 +34,7 @@ def main(year):
 
     csvout.writerow(cols)
 
-    for key in sorted(results):
+    for key in sorted(results, key=bibsort):
         row = []
         for col in cols:
             dat = results[key][col].encode("utf8")
