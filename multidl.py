@@ -120,8 +120,8 @@ def getlist(lst, year):
                 nils = 0
 
             # if we get 100 misses in a row, assume we're past the end
-            if nils > 100:
-                break
+            #if nils > 500:
+            #    break
     except:
         processpool.terminate()
         e = sys.exc_info()
