@@ -8,14 +8,15 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-ARCHIVEURL = 'http://registration.baa.org/cfm_Archive/iframe_ArchiveSearch.cfm'
+ARCHIVEURL = 'http://registration.baa.org/cfm_Archive/iframe_ArchiveSearch.cfm?mode=results&RequestTimeout=600&snap=47418326&'
 _2014URL = 'http://raceday.baa.org/2014/cf/public/iframe_ResultsSearch.cfm?mode=results'
 
 def getbib(bib, year, backoff=1):
     """Get data for a bib number
 
     raises ValueError if no runner with that bib number was found"""
-    url = _2014URL if year == "2014" else ARCHIVEURL
+    fourteen = True if year == "2014" else False
+    url = _2014URL if fourteen else ARCHIVEURL
 
     try:
         r = requests.post(url, {"BibNumber": bib, "RaceYearLowID": year, "RaceYearHighID": 0})
@@ -34,9 +35,12 @@ def getbib(bib, year, backoff=1):
     table = soup.find("table", attrs={"class": "tablegrid_table"})
     rows = table.findAll("tr")
 
-    bib, name, age, gender, city, state, country, ctz, _ = [t.text.strip() for t in rows[1].findAll("td")]
-
-    k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, genderdiv, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
+    if fourteen:
+        bib, name, age, gender, city, state, country, ctz, _ = [t.text.strip() for t in rows[1].findAll("td")]
+        k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, genderdiv, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
+    else:
+        _, bib, name, age, gender, city, state, country, _ = [t.text.strip() for t in rows[1].findAll("td")]
+        overall, genderdiv, division, official, net = [t.text.strip() for t in rows[2].findAll("td")][1:]
 
     return {
         "5k": k5,
