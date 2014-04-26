@@ -9,16 +9,23 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-ARCHIVEURL = 'http://registration.baa.org/cfm_Archive/iframe_ArchiveSearch.cfm'
+ARCHIVEURL = 'http://registration.baa.org/cfm_Archive/iframe_ArchiveSearch.cfm?mode=results&RequestTimeout=600&snap=47418326&'
 _2014URL = 'http://raceday.baa.org/2014/cf/public/iframe_ResultsSearch.cfm?mode=results'
 
-def getbib(bibyear, backoff=1):
+def bibworker(bibyear):
+    try:
+        bib, year = bibyear
+        return getbib(bib, year)
+    except KeyboardInterrupt:
+        return {}
+
+def getbib(bib, year, backoff=1):
     """Get data for a bib number
 
     raises ValueError if no runner with that bib number was found"""
-    bib, year = bibyear
+    fourteen = True if year == "2014" else False
     try:
-        url = _2014URL if year == "2014" else ARCHIVEURL
+        url = _2014URL if fourteen else ARCHIVEURL
         r = requests.post(url, {"BibNumber": bib, "RaceYearLowID": year, "RaceYearHighID": 0})
         if r.status_code != 200:
             raise requests.ConnectionError
@@ -36,35 +43,52 @@ def getbib(bibyear, backoff=1):
     rows = table.findAll("tr")
 
     try:
-        bib, name, age, gender, city, state, country, ctz, _ = [t.text.strip() for t in rows[1].findAll("td")]
-        k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, genderdiv, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
+        if fourteen:
+            bib, name, age, gender, city, state, country, ctz, _ = [t.text.strip() for t in rows[1].findAll("td")]
+            k5, k10, k15, k20, half, k25, k30, k35, k40, pace, projected, official, overall, genderdiv, division = [t.text.strip() for t in rows[2].findAll("td")][1:]
+            return {
+                "5k": k5,
+                "10k": k10,
+                "20k": k20,
+                "half": half,
+                "25k": k25,
+                "30k": k30,
+                "35k": k35,
+                "40k": k40,
+                "pace": pace,
+                "official": official,
+                "overall": overall,
+                "genderdiv": genderdiv,
+                "division": division,
+                "bib": bib,
+                "name": name,
+                "age": age,
+                "gender": gender,
+                "city": city,
+                "state": state,
+                "country": country,
+                "ctz": ctz
+            }
+        else:
+            _, bib, name, age, gender, city, state, country, _ = [t.text.strip() for t in rows[1].findAll("td")]
+            overall, genderdiv, division, official, net = [t.text.strip() for t in rows[2].findAll("td")][1:]
+            return {
+                "overall": overall,
+                "genderdiv": genderdiv,
+                "division": division,
+                "official": official,
+                "net": net,
+                "bib": bib,
+                "name": name,
+                "age": age,
+                "gender": gender,
+                "city": city,
+                "state": state,
+                "country": country,
+            }
     except ValueError:
         # there is no runner at this bib #
         return {}
-
-    return {
-        "5k": k5,
-        "10k": k10,
-        "20k": k20,
-        "half": half,
-        "25k": k25,
-        "30k": k30,
-        "35k": k35,
-        "40k": k40,
-        "pace": pace,
-        "official": official,
-        "overall": overall,
-        "genderdiv": genderdiv,
-        "division": division,
-        "bib": bib,
-        "name": name,
-        "age": age,
-        "gender": gender,
-        "city": city,
-        "state": state,
-        "country": country,
-        "ctz": ctz
-    }
 
 class PartialResultsError(Exception):
     """wraps an exception and includes partial results"""
@@ -80,13 +104,15 @@ def getlist(lst, year):
     results = {}
     nils = 0
     n = 0
+    lastbib = 0
     try:
-        for result in processpool.imap(getbib, lst):
+        for result in processpool.imap(bibworker, lst):
             if result:
+                lastbib = result['bib']
                 results.update({result['bib']: result})
 
             n += 1
-            if n % 100 == 0: print n
+            if n % 100 == 0: print n, lastbib
 
             if result == {}:
                 nils += 1
