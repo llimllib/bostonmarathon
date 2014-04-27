@@ -1,9 +1,6 @@
 Boston Marathon Raw Data
 ==================================================
 
-Summary
---------------------------------------
-
 This repository contains, as close as I can manage, all of the data on the Boston Marathon
 available from baa.org. It also contains a python notebook for exploration of that data.
 
