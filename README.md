@@ -19,6 +19,7 @@ if you're interested in that data please submit a pull request!
 do about that, as far as I can tell that data is unavailable from baa.org
 * The data is certainly missing a few people, but it ought to contain the large
 majority of runners who finished from each year.
+* The code is ugly. This is just about grinding the results out!
 
 
 Downloading The Data
