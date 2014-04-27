@@ -10,6 +10,17 @@ The Data
 Look in the results/{year}/results.csv directories for the data. Do something interesting with
 it, and make sure you [tell me about it](bill.mill@gmail.com)!
 
+Caveats
+--------------------------------------
+
+* The data includes wheelchair racers but not hand cyclists or other special groups...
+if you're interested in that data please submit a pull request!
+* The data does not include runners who did not finish. There's nothing I can
+do about that, as far as I can tell that data is unavailable from baa.org
+* The data is certainly missing a few people, but it ought to contain the large
+majority of runners who finished from each year.
+
+
 Downloading The Data
 --------------------------------------
 
