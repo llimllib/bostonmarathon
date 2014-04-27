@@ -10,6 +10,12 @@ The Data
 Look in the results/{year}/results.csv directories for the data. Do something interesting with
 it, and make sure you [tell me about it](bill.mill@gmail.com)!
 
+License
+--------------------------------------
+
+MIT License. Use it as you want to, don't feel obligated to give me credit. It's the BAA's
+data anyway. (Thanks for organizing, BAA)
+
 Caveats
 --------------------------------------
 
