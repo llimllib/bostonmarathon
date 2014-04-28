@@ -19,12 +19,6 @@ timing data, with splits at 10k, 20k, 25k, half, 30k, 35k, and 40k.
 Pre-2013, the data has only the finishing time, but adds the person's standing in their
 division, gender, and overall.
 
-License
---------------------------------------
-
-MIT License. Use it as you want to, don't feel obligated to give me credit. It's the BAA's
-data anyway. (Thanks for organizing, BAA)
-
 Caveats
 --------------------------------------
 
@@ -36,6 +30,17 @@ do about that, as far as I can tell that data is unavailable from baa.org
 majority of runners who finished from each year.
 * The code is ugly. This is just about grinding the results out!
 
+Visualizations
+--------------------------------------
+
+* @tmcw's [heatmap of finish times](http://bl.ocks.org/tmcw/11376778/d39142fc73e14097fad33d50e75366d197b6c2a3)
+* my [histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
+
+License
+--------------------------------------
+
+MIT License. Use it as you want to, don't feel obligated to give me credit. It's the BAA's
+data anyway. (Thanks for organizing, BAA)
 
 Downloading The Data
 --------------------------------------
