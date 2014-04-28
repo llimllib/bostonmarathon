@@ -7,8 +7,17 @@ available from baa.org. It also contains a python notebook for exploration of th
 The Data
 --------------------------------------
 
-Look in the results/{year}/results.csv directories for the data. Do something interesting with
+Look in the results/{year}/results.csv files for the data. Do something interesting with
 it, and make sure you [tell me about it](bill.mill@gmail.com)!
+
+Format
+--------------------------------------
+
+There are (unfortunately) two different data formats. 2013 and 2014 have more detailed
+timing data, with splits at 10k, 20k, 25k, half, 30k, 35k, and 40k.
+
+Pre-2013, the data has only the finishing time, but adds the person's standing in their
+division, gender, and overall.
 
 License
 --------------------------------------
