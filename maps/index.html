@@ -2,23 +2,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
-.counties {
-  fill: none;
-}
-
-.states {
-  fill: none;
-  stroke: #fff;
-  stroke-linejoin: round;
-}
-
-.states {
-  fill: "red";
-  stroke: #fff;
-  stroke-linejoin: round;
-}
-
 .q0-9 { fill:rgb(247,251,255); }
 .q1-9 { fill:rgb(222,235,247); }
 .q2-9 { fill:rgb(198,219,239); }
@@ -28,7 +11,6 @@
 .q6-9 { fill:rgb(33,113,181); }
 .q7-9 { fill:rgb(8,81,156); }
 .q8-9 { fill:rgb(8,48,107); }
-
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -110,8 +92,6 @@ statecodes = {
 var width = 960,
     height = 600;
 
-var rateById = d3.map();
-
 var percapita = function(d) { return states[d["two"]] / d.population; }
 var maxvalue = d3.max(d3.values(statecodes).map(percapita));
 
@@ -137,14 +117,6 @@ queue()
     .await(ready);
 
 function ready(error, us) {
-  svg.append("g")
-      .attr("class", "counties")
-    .selectAll("path")
-      .data(topojson.feature(us, us.objects.counties).features)
-    .enter().append("path")
-      .attr("class", function(d) { return quantize(rateById.get(d.id)); })
-      .attr("d", path);
-
   var pad = d3.format("02d");
 
   function colorize(d) {
@@ -160,11 +132,6 @@ function ready(error, us) {
   .enter().append("path")
     .attr("class", colorize)
     .attr("d", path);
-
-  //svg.append("path")
-  //    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-  //    .attr("class", "states")
-  //    .attr("d", path);
 }
 
 d3.select(self.frameElement).style("height", height + "px");
