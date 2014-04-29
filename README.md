@@ -36,7 +36,10 @@ Visualizations
 * @tmcw
     * [heatmap of finish times](http://bl.ocks.org/tmcw/11376778/d39142fc73e14097fad33d50e75366d197b6c2a3)
     * [which years did people PR?](http://bl.ocks.org/tmcw/raw/11385055/)
-* my [histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
+* me
+    * ![Violin plot of finish times 2001-2014](https://raw.githubusercontent.com/llimllib/bostonmarathon/master/images/times_box.png)
+    * [histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
+
 
 License
 --------------------------------------
