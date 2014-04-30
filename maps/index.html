@@ -54,7 +54,6 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
 <script>
 states = {"wa": 4882, "bc": 2914, "va": 6611, "de": 739, "dc": 1595, "wi": 4591, "wv": 474,
           "hi": 543, "co": 5111, "fl": 6676, "fm": 2, "wy": 249, "nh": 4469, "sk": 350,
@@ -158,14 +157,9 @@ function quantize(i) {
   return "q" + logscale(i) + "-9";
 }
 
-var projection = d3.geo.modifiedStereographic()
-  .coefficients("gs50")
-      .clipAngle(55)
+var projection = d3.geo.albers()
   .scale(980)
-  .translate([width / 2, height / 2])
-  .center([0, -25])
-  .rotate([100, -65])
-  .precision(.1);
+  .translate([width/2, height/2]);
 
 var path = d3.geo.path()
     .projection(projection);
