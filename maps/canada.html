@@ -13,6 +13,12 @@
 .q8-9 { fill:rgb(8,48,107); }
 .qNaN-9 { fill:rgb(247,251,255); }
 
+.states, .provinces {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
 #tooltip {
   position: absolute;
   width: 120px;
@@ -140,7 +146,7 @@ var provincecodes = {
 var width = 960,
     height = 900;
 
-var percapita = function(d) { return states[d.two] / d.population; }
+function percapita(d) { return states[d.two] / d.population; }
 var runnerpop = d3.values(statecodes).map(percapita);
 var maxvalue = d3.max(runnerpop);
 var minvalue = d3.min(runnerpop);
@@ -205,7 +211,7 @@ queue()
 
 function ready(error, us, canada) {
   function colorize(d) {
-    var state = statecodes[pad(d.id)]
+    var state = statecodes[pad(d.id)];
     var percapita = states[state.two] / state.population;
     return quantize(percapita);
   }
@@ -238,6 +244,5 @@ function ready(error, us, canada) {
 }
 
 d3.select(self.frameElement).style("height", height + "px");
-
 </script>
 </body>
