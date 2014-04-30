@@ -140,14 +140,10 @@ var provincecodes = {
 var width = 960,
     height = 900;
 
-var percapita = function(d) {
-  console.log(d["two"], states[d.two] / d.population);
-  return states[d.two] / d.population;
-}
+var percapita = function(d) { return states[d.two] / d.population; }
 var runnerpop = d3.values(statecodes).map(percapita);
 var maxvalue = d3.max(runnerpop);
 var minvalue = d3.min(runnerpop);
-console.log("minvalue: ", minvalue)
 
 var logscale = d3.scale.log().domain([minvalue,maxvalue]).rangeRound([0,8]);
 
@@ -178,7 +174,6 @@ function mousemove(d) {
     .style("left", xPosition + "px")
     .style("top", yPosition + "px");
 
-  console.log(d);
   var id = pad(d.id);
   if (statecodes.hasOwnProperty(id)) {
     var state = statecodes[id];
