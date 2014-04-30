@@ -116,9 +116,10 @@ var svg = d3.select("body").append("svg")
 
 queue()
     .defer(d3.json, "us.json")
+    .defer(d3.json, "canada.json")
     .await(ready);
 
-function ready(error, us) {
+function ready(error, us, canada) {
   var pad = d3.format("02d");
 
   function colorize(d) {
@@ -128,11 +129,19 @@ function ready(error, us) {
   }
 
   svg.append("g")
-    .attr("class", "states2")
+    .attr("class", "states")
   .selectAll("path")
     .data(topojson.feature(us, us.objects.states).features)
   .enter().append("path")
     .attr("class", colorize)
+    .attr("d", path);
+
+  svg.append("g")
+    .attr("class", "provinces")
+  .selectAll("path")
+    .data(topojson.feature(canada, canada.objects.provinces).features)
+  .enter().append("path")
+    .attr("class", "q8-9")
     .attr("d", path);
 }
 
