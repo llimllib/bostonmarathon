@@ -49,6 +49,7 @@
 <div id="tooltip" class="hidden">
   <p><strong id="heading"></strong></p>
   <p><span id="runners"></span></p>
+  <p><span id="per1000"></span></p>
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -170,6 +171,7 @@ var path = d3.geo.path()
     .projection(projection);
 
 var pad = d3.format("02d");
+var f2 = d3.format(".2f");
 
 // http://bl.ocks.org/tgk/6044254
 function mousemove(d) {
@@ -189,10 +191,15 @@ function mousemove(d) {
     var name = d.id;
   }
 
+  var runners = states[state.two] || 0;
+  var per1000 = f2((runners / state.population) * 1000)
+
   d3.select("#tooltip #heading")
     .text(name);
   d3.select("#tooltip #runners")
-    .text("runners: " + states[state.two]);
+    .text("runners: " + runners);
+  d3.select("#tooltip #per1000")
+    .text("per 1000: " + per1000);
   d3.select("#tooltip").classed("hidden", false);
 };
 
