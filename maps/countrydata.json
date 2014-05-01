@@ -940,188 +940,163 @@
     "three": "MNP"
   },
   "410": {
-    "population": 24895000tion": 17186000, 
-    "name": "Kazakhstan", 
-    "three": "KAZ"
-  }, 
-  "400": {
-    "population": 6555800, 
-    "name": "Jordan", 
-    "three": "JOR"
-  }, 
-  "404": {
-    "population": 44354000, 
-    "name": "Kenya", 
-    "three": "KEN"
-  }, 
-  "408": {
-    "population": 50219669, 
-    "name": "South Korea", 
-    "three": "PRK"
-  }, 
-  "580": {
-    "population": 53883, 
-    "name": "Northern Mariana Islands", 
-    "three": "MNP"
-  }, 
-  "410": {
-    "population": 24895000, 
-    "name": "North Korea", 
+    "population": 24895000,
+    "name": "North Korea",
     "three": "KOR"
-  }, 
+  },
   "414": {
-    "population": 3065850, 
-    "name": "Kuwait", 
+    "population": 3065850,
+    "name": "Kuwait",
     "three": "KWT"
-  }, 
+  },
   "417": {
-    "population": 5663133, 
-    "name": "Kyrgyzstan", 
+    "population": 5663133,
+    "name": "Kyrgyzstan",
     "three": "KGZ"
-  }, 
+  },
   "418": {
-    "population": 6580800, 
-    "name": "Laos", 
+    "population": 6580800,
+    "name": "Laos",
     "three": "LAO"
-  }, 
+  },
   "422": {
-    "population": 4822000, 
-    "name": "Lebanon", 
+    "population": 4822000,
+    "name": "Lebanon",
     "three": "LBN"
-  }, 
+  },
   "426": {
-    "population": 2074000, 
-    "name": "Lesotho", 
+    "population": 2074000,
+    "name": "Lesotho",
     "three": "LSO"
-  }, 
+  },
   "428": {
-    "population": 2005200, 
-    "name": "Latvia", 
+    "population": 2005200,
+    "name": "Latvia",
     "three": "LVA"
-  }, 
+  },
   "430": {
-    "population": 4294000, 
-    "name": "Liberia", 
+    "population": 4294000,
+    "name": "Liberia",
     "three": "LBR"
-  }, 
+  },
   "328": {
-    "population": 784894, 
-    "name": "Guyana", 
+    "population": 784894,
+    "name": "Guyana",
     "three": "GUY"
-  }, 
+  },
   "434": {
-    "population": 6202000, 
-    "name": "Libya", 
+    "population": 6202000,
+    "name": "Libya",
     "three": "LBY"
-  }, 
+  },
   "158": {
-    "population": 23377515, 
-    "name": "Taiwan", 
+    "population": 23377515,
+    "name": "Taiwan",
     "three": "TWN"
-  }, 
+  },
   "438": {
-    "population": 36942, 
-    "name": "Liechtenstein", 
+    "population": 36942,
+    "name": "Liechtenstein",
     "three": "LIE"
-  }, 
+  },
   "440": {
-    "population": 2941953, 
-    "name": "Lithuania", 
+    "population": 2941953,
+    "name": "Lithuania",
     "three": "LTU"
-  }, 
+  },
   "442": {
-    "population": 537000, 
-    "name": "Luxembourg", 
+    "population": 537000,
+    "name": "Luxembourg",
     "three": "LUX"
-  }, 
+  },
   "450": {
-    "population": 21263403, 
-    "name": "Madagascar", 
+    "population": 21263403,
+    "name": "Madagascar",
     "three": "MDG"
-  }, 
+  },
   "454": {
-    "population": 16363000, 
-    "name": "Malawi", 
+    "population": 16363000,
+    "name": "Malawi",
     "three": "MWI"
-  }, 
+  },
   "458": {
-    "population": 30030000, 
-    "name": "Malaysia", 
+    "population": 30030000,
+    "name": "Malaysia",
     "three": "MYS"
-  }, 
+  },
   "462": {
-    "population": 317280, 
-    "name": "Maldives", 
+    "population": 317280,
+    "name": "Maldives",
     "three": "MDV"
-  }, 
+  },
   "466": {
-    "population": 15302000, 
-    "name": "Mali", 
+    "population": 15302000,
+    "name": "Mali",
     "three": "MLI"
-  }, 
+  },
   "470": {
-    "population": 416055, 
-    "name": "Malta", 
+    "population": 416055,
+    "name": "Malta",
     "three": "MLT"
-  }, 
+  },
   "474": {
-    "population": 392291, 
-    "name": "Martinique", 
+    "population": 392291,
+    "name": "Martinique",
     "three": "MTQ"
-  }, 
+  },
   "762": {
-    "population": 8160000, 
-    "name": "Tajikistan", 
+    "population": 8160000,
+    "name": "Tajikistan",
     "three": "TJK"
-  }, 
+  },
   "478": {
-    "population": 3461041, 
-    "name": "Mauritania", 
+    "population": 3461041,
+    "name": "Mauritania",
     "three": "MRT"
-  }, 
+  },
   "480": {
-    "population": 1257900, 
-    "name": "Mauritius", 
+    "population": 1257900,
+    "name": "Mauritius",
     "three": "MUS"
-  }, 
+  },
   "484": {
-    "population": 118395054, 
-    "name": "Mexico", 
+    "population": 118395054,
+    "name": "Mexico",
     "three": "MEX"
-  }, 
+  },
   "492": {
-    "population": 36136, 
-    "name": "Monaco", 
+    "population": 36136,
+    "name": "Monaco",
     "three": "MCO"
-  }, 
+  },
   "496": {
-    "population": 2931300, 
-    "name": "Mongolia", 
+    "population": 2931300,
+    "name": "Mongolia",
     "three": "MNG"
-  }, 
+  },
   "498": {
-    "population": 3559500, 
-    "name": "Moldova", 
+    "population": 3559500,
+    "name": "Moldova",
     "three": "MDA"
-  }, 
+  },
   "499": {
-    "population": 620029, 
-    "name": "Montenegro", 
+    "population": 620029,
+    "name": "Montenegro",
     "three": "MNE"
-  }, 
+  },
   "504": {
-    "population": 33194500, 
-    "name": "Morocco", 
+    "population": 33194500,
+    "name": "Morocco",
     "three": "MAR"
-  }, 
+  },
   "508": {
-    "population": 23700715, 
-    "name": "Mozambique", 
+    "population": 23700715,
+    "name": "Mozambique",
     "three": "MOZ"
-  }, 
+  },
   "170": {
-    "population": 47494000, 
-    "name": "Colombia", 
+    "population": 47494000,
+    "name": "Colombia",
     "three": "COL"
   }
 }
