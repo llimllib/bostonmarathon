@@ -75,9 +75,10 @@ countries = {"LIE": 1, "EGY": 3, "LBY": 2, "QAT": 4, "PRY": 2, "BOL": 3, "SGP": 
 var width = 960,
     height = 600;
 
-var projection = d3.geo.mercator()
-  .scale(180)
-  .translate([width/2, height/2+20]);
+var projection = d3.geo.eckert3()
+    .scale(205)
+    .translate([width / 2 - 40, height / 2])
+    .precision(.1);
 
 var path = d3.geo.path()
     .projection(projection);
@@ -99,17 +100,6 @@ function ready(error, world, countrydata) {
     console.log("error in data: ", error);
     return;
   }
-
-  function find(code) {
-    var found = undefined;
-    d3.values(countrydata).forEach(function(d) {
-        if (d.three == code) { found = d; }
-    });
-    return found;
-  }
-
-  var x = d3.keys(countries).map(function(d) { if (!find(d)) { return d; }});
-  console.log(x);
 
   function percapita(d) { return countries[d.three] / d.population; }
   var runnerpop = d3.values(countrydata).map(percapita);
@@ -156,7 +146,7 @@ function ready(error, world, countrydata) {
     var id = d.id;
     var country = countrydata[id];
     if (country == undefined) {
-      console.log("unable to find country from ", d);
+      return;
     }
     var name = country.name;
 
