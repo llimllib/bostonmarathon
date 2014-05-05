@@ -16,9 +16,4 @@ push:
 	git push --force --set-upstream origin gh-pages
 	git checkout master
 
-deploy:
-	git stash
-	-$(MAKE) push
-	git stash apply
-
-.PHONY: notebook serve push deploy
+.PHONY: notebook serve push
