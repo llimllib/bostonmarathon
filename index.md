@@ -6,6 +6,18 @@ This repository has two parts:
     * all of the data on Boston Marathon finishers available from 2001-2014
     * Visualizations of that data
 
+Visualizations
+--------------------------------------
+
+* by @tmcw
+    * [heatmap of finish times](http://bl.ocks.org/tmcw/11376778/d39142fc73e14097fad33d50e75366d197b6c2a3)
+    * [which years did people PR?](http://bl.ocks.org/tmcw/raw/11385055/)
+* by me
+    * [An interactive map of the states and provinces of the runners](https://billmill.org/bostonmarathon/maps/)
+    * [An interactive map of the countries of origin of the runenrs](https://billmill.org/bostonmarathon/maps/world.html)
+    * ![Violin plot of finish times 2001-2014](https://raw.githubusercontent.com/llimllib/bostonmarathon/master/images/times_violin.png)
+    * ![histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
+
 The Data
 --------------------------------------
 
@@ -31,19 +43,6 @@ do about that, as far as I can tell that data is unavailable from baa.org
 * The data is certainly missing a few people, but it ought to contain the large
 majority of runners who finished from each year.
 * The code is ugly. This is just about grinding the results out!
-
-Visualizations
---------------------------------------
-
-* @tmcw
-    * [heatmap of finish times](http://bl.ocks.org/tmcw/11376778/d39142fc73e14097fad33d50e75366d197b6c2a3)
-    * [which years did people PR?](http://bl.ocks.org/tmcw/raw/11385055/)
-* me
-    * ![Violin plot of finish times 2001-2014](https://raw.githubusercontent.com/llimllib/bostonmarathon/master/images/times_violin.png)
-    * [histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
-    * [A map of the states and provinces of the runners](https://billmill.org/bostonmarathon/maps/canada.html)
-    * [A map of the countries of origin of the runenrs](https://billmill.org/bostonmarathon/maps/world.html)
-
 
 License
 --------------------------------------
