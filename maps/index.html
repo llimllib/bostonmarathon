@@ -1,0 +1,249 @@
+<html><head><title>Runner Chloropleth</title>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+.qNaN-9 { fill:rgb(247,251,255); }
+
+.states, .provinces {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+#tooltip {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip p {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+</style>
+<body>
+<div id="tooltip" class="hidden">
+  <p><strong id="heading"></strong></p>
+  <p><span id="runners"></span></p>
+  <p><span id="per1000"></span></p>
+</div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script>
+states = {"wa": 4882, "bc": 2914, "va": 6611, "de": 739, "dc": 1595, "wi": 4591, "wv": 474,
+          "hi": 543, "co": 5111, "fl": 6676, "fm": 2, "wy": 249, "nh": 4469, "sk": 350,
+          "nj": 5860, "pq": 1344, "nl": 96, "nm": 720, "tx": 9662, "la": 734, "nb": 679,
+          "nc": 4737, "nd": 296, "ne": 837, "nf": 113, "yt": 23, "tn": 2407, "ny": 15299,
+          "pa": 9399, "pe": 194, "ns": 1102, "nt": 13, "ca": 19467, "nv": 850, "aa": 12,
+          "pr": 374, "gu": 7, "ab": 2338, "ae": 75, "pw": 1, "on": 11940, "vi": 27, "ak": 554,
+          "oh": 8111, "al": 1028, "ap": 19, "as": 1, "ar": 567, "vt": 1443, "il": 10158,
+          "ga": 3682, "in": 3009, "ia": 1693, "ok": 898, "az": 2686, "id": 873, "ct": 5082,
+          "me": 2222, "md": 4941, "ma": 58667, "mb": 437, "ut": 3240, "mo": 2298, "mn": 5102,
+          "mi": 7184, "ri": 1968, "ks": 1491, "mt": 563, "qc": 1527, "ms": 395, "sc": 1532,
+          "ky": 1399, "or": 3160, "sd": 269};
+
+statecodes = {
+  "30": { "id": "30", "name": "Montana", "two": "mt", "population": 989415 },
+  "54": { "id": "54", "name": "West Virginia", "two": "wv", "population": 1852994 },
+  "42": { "id": "42", "name": "Pennsylvania", "two": "pa", "population": 12702379 },
+  "48": { "id": "48", "name": "Texas", "two": "tx", "population": 25145561 },
+  "45": { "id": "45", "name": "South Carolina", "two": "sc", "population": 4625364 },
+  "50": { "id": "50", "name": "Vermont", "two": "vt", "population": 625741 },
+  "60": { "id": "60", "name": "American Samoa", "two": "as", "population": 55519 },
+  "49": { "id": "49", "name": "Utah", "two": "ut", "population": 2763885 },
+  "66": { "id": "66", "name": "Guam", "two": "gu", "population": 159358 },
+  "69": { "id": "69", "name": "Northern Mariana Islands", "two": "mp", "population": 53883 },
+  "53": { "id": "53", "name": "Washington", "two": "wa", "population": 6724540 },
+  "02": { "id": "02", "name": "Alaska", "two": "ak", "population": 710231 },
+  "25": { "id": "25", "name": "Massachusetts", "two": "ma", "population": 6547629 },
+  "26": { "id": "26", "name": "Michigan", "two": "mi", "population": 9883640 },
+  "01": { "id": "01", "name": "Alabama", "two": "al", "population": 4779736 },
+  "06": { "id": "06", "name": "California", "two": "ca", "population": 37253956 },
+  "21": { "id": "21", "name": "Kentucky", "two": "ky", "population": 4339367 },
+  "04": { "id": "04", "name": "Arizona", "two": "az", "population": 6392017 },
+  "05": { "id": "05", "name": "Arkansas", "two": "ar", "population": 2915918 },
+  "46": { "id": "46", "name": "South Dakota", "two": "sd", "population": 814180 },
+  "47": { "id": "47", "name": "Tennessee", "two": "tn", "population": 6346105 },
+  "08": { "id": "08", "name": "Colorado", "two": "co", "population": 5029196 },
+  "09": { "id": "09", "name": "Connecticut", "two": "ct", "population": 3574097 },
+  "28": { "id": "28", "name": "Mississippi", "two": "ms", "population": 2967297 },
+  "29": { "id": "29", "name": "Missouri", "two": "mo", "population": 5988927 },
+  "40": { "id": "40", "name": "Oklahoma", "two": "ok", "population": 3751351 },
+  "41": { "id": "41", "name": "Oregon", "two": "or", "population": 3831074 },
+  "51": { "id": "51", "name": "Virginia", "two": "va", "population": 8001024 },
+  "24": { "id": "24", "name": "Maryland", "two": "md", "population": 5773552 },
+  "56": { "id": "56", "name": "Wyoming", "two": "wy", "population": 563626 },
+  "39": { "id": "39", "name": "Ohio", "two": "oh", "population": 11536504 },
+  "27": { "id": "27", "name": "Minnesota", "two": "mn", "population": 5303925 },
+  "72": { "id": "72", "name": "Puerto Rico", "two": "pr", "population": 3725789 },
+  "20": { "id": "20", "name": "Kansas", "two": "ks", "population": 2853118 },
+  "38": { "id": "38", "name": "North Dakota", "two": "nd", "population": 672591 },
+  "78": { "id": "78", "name": "U.S. Virgin Islands", "two": "vi", "population": 106405 },
+  "11": { "id": "11", "name": "District of Columbia", "two": "dc", "population": 601723 },
+  "10": { "id": "10", "name": "Delaware", "two": "de", "population": 897934 },
+  "13": { "id": "13", "name": "Georgia", "two": "ga", "population": 9687653 },
+  "12": { "id": "12", "name": "Florida", "two": "fl", "population": 18801310 },
+  "15": { "id": "15", "name": "Hawaii", "two": "hi", "population": 1360301 },
+  "22": { "id": "22", "name": "Louisiana", "two": "la", "population": 4533372 },
+  "17": { "id": "17", "name": "Illinois", "two": "il", "population": 12830632 },
+  "16": { "id": "16", "name": "Idaho", "two": "id", "population": 1567582 },
+  "19": { "id": "19", "name": "Iowa", "two": "ia", "population": 3046355 },
+  "18": { "id": "18", "name": "Indiana", "two": "in", "population": 6483802 },
+  "31": { "id": "31", "name": "Nebraska", "two": "ne", "population": 1826341 },
+  "23": { "id": "23", "name": "Maine", "two": "me", "population": 1328361 },
+  "37": { "id": "37", "name": "North Carolina", "two": "nc", "population": 9535483 },
+  "36": { "id": "36", "name": "New York", "two": "ny", "population": 19378102 },
+  "35": { "id": "35", "name": "New Mexico", "two": "nm", "population": 2059179 },
+  "34": { "id": "34", "name": "New Jersey", "two": "nj", "population": 8791894 },
+  "33": { "id": "33", "name": "New Hampshire", "two": "nh", "population": 1316470 },
+  "55": { "id": "55", "name": "Wisconsin", "two": "wi", "population": 5686986 },
+  "74": { "id": "74", "name": "U.S. Minor Outlying Islands", "two": "um", "population": 300 },
+  "32": { "id": "32", "name": "Nevada", "two": "nv", "population": 2700551 },
+  "44": { "id": "44", "name": "Rhode Island", "two": "ri", "population": 1052567 }
+}
+
+var provincecodes = {
+  "Yukon":                     {"two": "yt", "population": 33897},
+  "Saskatchewan":              {"two": "sk", "population": 1033381},
+  "Manitoba":                  {"two": "mb", "population": 1208268},
+  "Nova Scotia":               {"two": "ns", "population": 921727},
+  "Alberta":                   {"two": "ab", "population": 3645257},
+  "British Columbia":          {"two": "bc", "population": 4400057},
+  "Ontario":                   {"two": "on", "population": 12851821},
+  "Quebec":                    {"two": "qc", "population": 7903001},
+  "Prince Edward Island":      {"two": "pe", "population": 140204},
+  "Nunavut":                   {"two": "nu", "population": 31906},
+  "Northwest Territories":     {"two": "nt", "population": 41462},
+  "Newfoundland and Labrador": {"two": "nl", "population": 514536},
+  "New Brunswick":             {"two": "nb", "population": 751171},
+}
+
+var width = 960,
+    height = 900;
+
+function percapita(d) { return states[d.two] / d.population; }
+var runnerpop = d3.values(statecodes).map(percapita);
+var maxvalue = d3.max(runnerpop);
+var minvalue = d3.min(runnerpop);
+
+var logscale = d3.scale.log().domain([minvalue,maxvalue]).rangeRound([0,8]);
+
+function quantize(i) {
+  return "q" + logscale(i) + "-9";
+}
+
+var projection = d3.geo.albers()
+  .scale(980)
+  .translate([width/2, height/2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var pad = d3.format("02d");
+var f2 = d3.format(".2f");
+
+// http://bl.ocks.org/tgk/6044254
+function mousemove(d) {
+  var xPosition = d3.event.pageX + 5;
+  var yPosition = d3.event.pageY + 5;
+
+  d3.select("#tooltip")
+    .style("left", xPosition + "px")
+    .style("top", yPosition + "px");
+
+  var id = pad(d.id);
+  if (statecodes.hasOwnProperty(id)) {
+    var state = statecodes[id];
+    var name = state.name;
+  } else {
+    var state = provincecodes[d.id];
+    var name = d.id;
+  }
+
+  var runners = states[state.two] || 0;
+  var per1000 = f2((runners / state.population) * 1000)
+
+  d3.select("#tooltip #heading")
+    .text(name);
+  d3.select("#tooltip #runners")
+    .text("runners: " + runners);
+  d3.select("#tooltip #per1000")
+    .text("per 1000: " + per1000);
+  d3.select("#tooltip").classed("hidden", false);
+};
+
+function mouseout() {
+  d3.select("#tooltip").classed("hidden", true);
+};
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "us.json")
+    .defer(d3.json, "canada.json")
+    .await(ready);
+
+function ready(error, us, canada) {
+  function colorize(d) {
+    var state = statecodes[pad(d.id)];
+    var percapita = states[state.two] / state.population;
+    return quantize(percapita);
+  }
+
+  svg.append("g")
+    .attr("class", "states")
+  .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+  .enter().append("path")
+    .attr("class", colorize)
+    .attr("d", path)
+  .on("mousemove", mousemove)
+  .on("mouseout", mouseout);
+
+  function cacolorize(d) {
+    var province = provincecodes[d.id];
+    var percapita = states[province.two] / province.population;
+    return quantize(percapita);
+  }
+
+  svg.append("g")
+    .attr("class", "provinces")
+  .selectAll("path")
+    .data(topojson.feature(canada, canada.objects.provinces).features)
+  .enter().append("path")
+    .attr("class", cacolorize)
+    .attr("d", path)
+  .on("mousemove", mousemove)
+  .on("mouseout", mouseout);
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+</script>
+</body>

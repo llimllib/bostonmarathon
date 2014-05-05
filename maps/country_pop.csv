@@ -1,0 +1,237 @@
+Rank,Country,Population,Date,% of world population,Source
+1,China,"1,360,720,000","December 31, 2013",19.03%,Official estimate
+2,India,"1,241,270,000","March 9, 2014",17.4%,Population clock
+3,United States,"317,660,000","March 9, 2014",4.44%,Official population clock
+4,Indonesia,"249,866,000","July 1, 2013",3.5%,UN estimate
+5,Brazil,"201,032,714","July 1, 2013",2.81%,Official estimate
+6,Pakistan,"185,841,000","March 9, 2014",2.6%,Official population clock
+7,Nigeria,"173,615,000","July 1, 2013",2.43%,UN estimate
+8,Bangladesh,"152,518,015","July 16, 2012",2.13%,Official estimate
+9,Russia,"143,700,000","January 1, 2014",2.01%,Official estimate
+10,Japan,"127,180,000","February 1, 2014",1.78%,Monthly official estimate
+11,Mexico,"118,395,054","July 1, 2013",1.66%,CONAPO Official estimate
+12,Philippines,"99,235,900","March 9, 2014",1.39%,Official population clock
+13,Vietnam,"89,708,900","July 1, 2013",1.25%,Official estimate
+14,Ethiopia,"86,613,986","July 1, 2013",1.21%,Official estimate
+15,Egypt,"86,082,100","March 9, 2014",1.2%,Official population clock
+16,Germany,"80,619,000","July 31, 2013",1.13%,Monthly official estimate
+17,Iran,"77,269,000","March 9, 2014",1.08%,Official population clock
+18,Turkey,"76,667,864","December 31, 2013",1.07%,Official estimate
+19,Congo,"67,514,000","July 1, 2013",0.94%,UN estimate
+20,Thailand,"65,926,261","September 1, 2010",0.92%,2010 census result
+21,France,"65,844,000","February 1, 2014",0.92%,Monthly official estimate
+22,United Kingdom,"63,705,000","July 1, 2012",0.89%,Official estimate
+23,Italy,"59,943,933","September 30, 2013",0.84%,Monthly official estimate
+24,Myanmar,"53,259,000","July 1, 2013",0.75%,UN estimate
+25,South Africa,"52,981,991","July 1, 2013",0.74%,Official estimate
+26,South Korea,"50,219,669","July 1, 2013",0.7%,Official estimate
+27,Colombia,"47,494,000","March 9, 2014",0.66%,Official population clock
+28,Spain,"46,609,700","July 1, 2013",0.65%,Annual official estimate
+29,Ukraine,"45,426,200","January 1, 2014",0.64%,Monthly official estimate
+30,Tanzania,"44,928,923","August 26, 2012",0.63%,2012 census result
+31,Kenya,"44,354,000","July 1, 2013",0.62%,UN estimate
+32,Argentina,"41,660,096","October 27, 2010",0.56%,Final 2010 census result
+33,Algeria,"38,700,000","January 1, 2014",0.54%,Official estimate
+34,Poland,"38,502,396","June 30, 2013",0.54%,Official estimate
+35,Sudan,"37,964,000","July 1, 2013",0.53%,UN estimate
+36,Uganda,"35,357,000","July 1, 2013",0.49%,Annual official estimate
+37,Canada,"35,295,770","October 1, 2013",0.49%,Official estimate
+38,Iraq,"34,035,000","July 1, 2012",0.48%,Annual official estimate
+39,Morocco,"33,194,500","March 9, 2014",0.46%,Official population clock
+40,Peru,"30,475,144","June 30, 2013",0.43%,Annual official estimate
+41,Uzbekistan,"30,183,400","July 1, 2013",0.42%,Official estimate
+42,Malaysia,"30,030,000","March 9, 2014",0.42%,Official population clock
+43,Saudi Arabia,"29,994,272","July 1, 2013",0.42%,Official estimate
+44,Venezuela,"28,946,101","October 30, 2011",0.4%,Preliminary 2011 census result
+45,Nepal,"26,494,504","June 22, 2011",0.37%,Final 2011 census result
+46,Afghanistan,"25,500,100","January 1, 2013",0.36%,Official estimate
+47,Yemen,"25,235,000","July 1, 2013",0.35%,Official estimate
+48,North Korea,"24,895,000","July 1, 2013",0.35%,UN estimate
+49,Ghana,"24,658,823","September 26, 2010",0.34%,Final 2010 census result
+50,Mozambique,"23,700,715","July 1, 2012",0.33%,Official estimate
+51,Australia,"23,405,803","March 9, 2014",0.33%,Official population clock
+52,Taiwan,"23,377,515","January 31, 2014",0.33%,Monthly official estimate
+53,Ivory Coast,"23,202,000","July 1, 2012",0.32%,Official estimate
+54,Syria,"21,898,000","July 1, 2013",0.31%,UN estimate
+55,Madagascar,"21,263,403","July 1, 2012",0.3%,Annual official estimate
+56,Angola,"20,609,294","July 1, 2012",0.29%,Official estimate
+57,Cameroon,"20,386,799","July 1, 2012",0.29%,Annual official estimate
+58,Sri Lanka,"20,277,597","March 21, 2012",0.28%,Preliminary 2012 census result
+59,Romania,"20,121,641","October 20, 2011",0.28%,Final 2011 census result
+60,Burkina Faso,"17,322,796","July 1, 2013",0.24%,Official estimate
+61,Kazakhstan,"17,186,000","February 1, 2014",0.24%,Monthly official estimate
+62,Niger,"17,129,076","December 10, 2012",0.24%,Preliminary 2012 census result
+63,Netherlands,"16,841,100","March 9, 2014",0.24%,Official population clock
+64,Malawi,"16,363,000","July 1, 2013",0.23%,UN estimate
+65,Chile,"16,341,929","April 9, 2012",0.23%,Final 2012 census result
+66,Ecuador,"15,693,600","March 9, 2014",0.22%,Official population clock
+67,Guatemala,"15,438,384","June 30, 2013",0.22%,Annual official estimate
+68,Mali,"15,302,000","July 1, 2013",0.21%,UN estimate
+69,Cambodia,"15,135,000","July 1, 2013",0.21%,UN estimate
+70,Zambia,"14,580,290","July 1, 2013",0.2%,Official estimate
+71,Senegal,"13,567,338","July 1, 2013",0.19%,Official estimate
+72,Zimbabwe,"12,973,808","August 17, 2012",0.18%,Preliminary 2012 census result
+73,Chad,"12,825,000","July 1, 2013",0.18%,UN estimate
+75,Cuba,"11,167,325","September 15, 2012",0.16%,Preliminary 2012 census result
+76,Belgium,"11,132,269","January 1, 2014",0.16%,Monthly official estimate
+77,Tunisia,"10,886,500","July 1, 2013",0.15%,Official estimate
+78,Guinea,"10,824,200","July 1, 2010",0.15%,Official estimate
+79,Greece,"10,815,197","May 24, 2011",0.15%,Final 2011 census result
+80,Rwanda,"10,537,222","August 15, 2012",0.15%,Preliminary 2012 census result
+81,Czech Republic,"10,513,800","September 30, 2013",0.15%,Official estimate
+82,Somalia,"10,496,000","July 1, 2013",0.15%,UN estimate
+83,Portugal,"10,487,289","December 31, 2012",0.15%,Annual official estimate
+84,Haiti,"10,413,211","July 1, 2012",0.15%,Official estimate
+85,Benin,"10,323,000","July 1, 2013",0.14%,UN estimate
+86,Burundi,"10,163,000","July 1, 2013",0.14%,UN estimate
+87,Bolivia,"10,027,254","November 21, 2012",0.14%,2012 census result
+88,Hungary,"9,906,000","January 1, 2013",0.14%,Annual official estimate
+89,Sweden,"9,651,531","January 31, 2013",0.13%,Monthly official estimate
+90,Azerbaijan,"9,477,100","December 31, 2013",0.13%,Official estimate
+91,Belarus,"9,468,100","January 1, 2014",0.13%,Monthly official estimate
+92,Dominican Republic,"9,445,281","December 1, 2010",0.13%,Final 2010 census result
+93,Honduras,"8,555,072","July 1, 2013",0.12%,Annual official estimate
+94,Austria,"8,504,850","January 1, 2014",0.12%,Official quarterly estimate
+95,United Arab Emirates,"8,264,070","July 1, 2010",0.12%,Official estimate
+96,Tajikistan,"8,160,000","January 1, 2014",0.11%,Official estimate
+97,Israel,"8,146,300","January 31, 2014",0.11%,Monthly Official estimate
+98,Switzerland,"8,112,200","September 30, 2013",0.11%,Quarterly official estimate
+99,Papua New Guinea,"7,398,500","July 1, 2013",0.103%,Annual official estimate
+100,Bulgaria,"7,282,041","December 31, 2012",0.102%,Official estimate
+101,Hong Kong,"7,184,000","July 1, 2013",0.1%,Official estimate
+102,Serbia,"7,181,505","January 1, 2013",0.1%,Annual official estimate
+103,Paraguay,"6,783,374",2013,0.092%,Official estimate
+104,Laos,"6,580,800","July 1, 2013",0.092%,Annual official estimate
+105,Jordan,"6,555,800","March 9, 2014",0.092%,Official population clock
+106,El Salvador,"6,340,000","July 1, 2013",0.089%,UN estimate
+107,Eritrea,"6,333,000","July 1, 2013",0.089%,UN estimate
+108,Libya,"6,202,000","July 1, 2013",0.087%,UN estimate
+109,Togo,"6,191,155","November 6, 2010",0.087%,Final 2010 census result
+110,Sierra Leone,"6,190,280",2013,0.087%,Official estimate
+111,Nicaragua,"6,071,045","June 30, 2012",0.085%,Official estimate
+112,Kyrgyzstan,"5,663,133",2013,0.079%,1
+113,Denmark,"5,627,235","January 1, 2014",0.079%,Quarterly official estimate
+114,Finland,"5,452,821","January 31, 2014",0.076%,Monthly official estimate
+115,Slovakia,"5,415,459","September 30, 2013",0.076%,Official estimate
+116,Singapore,"5,399,200","July 1, 2013",0.076%,Official estimate
+117,Turkmenistan,"5,240,000","July 1, 2013",0.073%,UN estimate
+118,Norway,"5,109,056","January 1, 2014",0.071%,Quarterly official estimate
+119,Lebanon,"4,822,000","July 1, 2013",0.067%,UN estimate
+120,Costa Rica,"4,667,096","July 1, 2013",0.065%,Official estimate
+121,Central African Republic,"4,616,000","July 1, 2013",0.065%,UN estimate
+122,Ireland,"4,593,100","April 1, 2013",0.064%,Annual official estimate
+123,New Zealand,"4,516,830","March 9, 2014",0.063%,Official population clock
+124,Georgia,"4,483,800","January 1, 2013",0.063%,Annual official estimate
+125,Republic Of The Congo,"4,448,000","July 1, 2013",0.062%,UN estimate
+126,Palestine,"4,420,549","July 1, 2013",0.062%,Official estimate
+127,Liberia,"4,294,000","July 1, 2013",0.06%,UN estimate
+128,Croatia,"4,290,612","March 31, 2011",0.06%,2011 census result
+129,Oman,"3,957,000","December 31, 2013",0.054%,Monthly official estimate
+130,Bosnia And Herzegovina,"3,791,622","October 15, 2013",0.054%,Preliminary 2013 census result
+131,Puerto Rico,"3,615,086","July 1, 2013",0.051%,Official estimate
+132,Moldova,"3,559,500","January 1, 2013",0.05%,Official estimate
+133,Mauritania,"3,461,041","July 1, 2013",0.048%,Annual official estimate
+134,Panama,"3,405,813","May 16, 2010",0.048%,Final 2010 census result
+135,Uruguay,"3,286,314","September 30, 2011",0.046%,Final 2011 census result
+136,Kuwait,"3,065,850","July 1, 2011",0.043%,Official estimate
+137,Armenia,"3,017,000","September 30, 2013",0.042%,Quarterly official estimate
+138,Lithuania,"2,941,953","February 1, 2014",0.041%,Monthly official estimate
+139,Albania,"2,821,977","October 1, 2011",0.039%,2011 census result
+140,Mongolia,"2,931,300","December 31, 2013",0.039%,Official preliminary result
+141,Jamaica,"2,711,476","December 31, 2012",0.038%,Annual official estimate
+142,Namibia,"2,113,077","August 28, 2011",0.03%,Final 2011 census result
+143,Lesotho,"2,074,000","July 1, 2013",0.029%,UN estimate
+144,Macedonia,"2,062,294","December 31, 2012",0.029%,Official estimate
+145,Slovenia,"2,061,875","March 9, 2014",0.029%,Official population clock
+146,Qatar,"2,045,239","December 31, 2013",0.029%,Monthly official estimate
+147,Botswana,"2,024,904","August 22, 2011",0.028%,Final 2011 census result
+148,Latvia,"2,005,200","January 1, 2014",0.028%,Monthly official estimate
+149,Gambia,"1,849,000","July 1, 2013",0.026%,UN estimate
+151,Guinea-Bissau,"1,704,000","July 1, 2013",0.024%,UN estimate
+152,Gabon,"1,672,000","July 1, 2013",0.023%,UN estimate
+153,Equatorial Guinea,"1,622,000","July 1, 2010",0.023%,Annual official estimate
+154,Trinidad And Tobago,"1,328,019","January 9, 2011",0.019%,2011 census result
+155,Estonia,"1,311,870","January 1, 2014",0.018%,Official estimate
+156,Mauritius,"1,257,900","July 3, 2011",0.018%,2011 census result
+157,Swaziland,"1,250,000","July 1, 2013",0.017%,UN estimate
+158,Bahrain,"1,234,571","April 27, 2010",0.017%,Final 2010 census result
+159,Timor-Leste,"1,066,409","July 11, 2010",0.015%,Final 2010 census result
+160,Djibouti,"873,000","July 1, 2013",0.012%,UN estimate
+161,Cyprus,"865,878","December 31, 2012",0.012%,Official estimate
+162,Fiji,"858,038","July 1, 2012",0.012%,Annual official estimate
+164,Guyana,"784,894","July 1, 2010",0.011%,Annual official estimate
+165,Bhutan,"744,910","March 9, 2014",0.0104%,Official population clock
+166,Comoros,"743,798","July 1, 2013",0.0104%,Official estimate
+167,Montenegro,"620,029","April 1, 2011",0.0087%,Final 2011 census result
+169,Solomon Islands,"581,344","July 1, 2013",0.0081%,Annual official estimate
+170,Western Sahara,"567,000","July 1, 2013",0.0079%,UN estimate
+171,Luxembourg,"537,000","December 31, 2012",0.0075%,Annual official estimate
+172,Suriname,"534,189","August 13, 2012",0.0075%,Preliminary 2012 census result
+173,Cape Verde,"491,875","June 16, 2010",0.0069%,Final 2010 census result
+174,Malta,"416,055","November 20, 2011",0.0058%,Preliminary 2011 census result
+175,Guadeloupe,"405,739","January 1, 2013",0.0056%,Official annual estimate
+176,Martinique,"392,291","January 1, 2011",0.0055%,Official annual estimate
+177,Brunei,"393,162","June 20, 2011",0.0055%,Preliminary 2011 census result
+178,Bahamas,"351,461","May 3, 2010",0.0049%,Final 2010 census result
+179,Belize,"349,728","July 1, 2013",0.0044%,Official estimate
+180,Iceland,"325,671","December 31, 2013",0.0045%,Quarterly official estimate
+181,Maldives,"317,280","July 1, 2010",0.0044%,Official estimate
+182,Barbados,"285,000","July 1, 2013",0.004%,Official estimate
+183,French Polynesia,"268,270","August 22, 2012",0.0038%,Preliminary 2012 census result
+184,Vanuatu,"264,652","July 1, 2013",0.0037%,Annual official estimate
+185,New Caledonia,"258,958","July 1, 2013",0.0036%,Annual official estimate
+186,French Guiana,"237,549","January 1, 2011",0.0032%,Official annual estimate
+187,Mayotte,"212,645","August 21, 2012",0.003%,2012 census result
+188,Samoa,"187,820","November 7, 2011",0.0026%,Final 2011 census result
+189,São Tomé And Príncipe,"187,356","May 13, 2012",0.0026%,2012 census result
+190,Saint Lucia,"180,000","May 10, 2013",0.0023%,Preliminary 2010 census result
+191,Guam,"159,358","April 1, 2010",0.0022%,Final 2010 census result
+193,Saint Vincent And The Grenadines,"109,000","July 1, 2013",0.0015%,UN estimate
+194,Kiribati,"106,461","July 1, 2013",0.0015%,Annual official estimate
+195,United States Virgin Islands,"106,405","April 1, 2010",0.0015%,Final 2010 census result
+196,Grenada,"103,328","May 12, 2011",0.0014%,2011 census result
+197,Tonga,"103,036","November 30, 2011",0.0014%,2011 census result
+198,Aruba,"101,484","September 29, 2010",0.0014%,2010 census result
+199,Micronesia,"101,351","July 1, 2013",0.0014%,Annual official estimate
+200,Jersey,"99,000","December 31, 2012",0.0014%,2011 census result
+201,Seychelles,"90,945","August 26, 2010",0.0013%,Final 2010 census result
+202,Antigua And Barbuda,"86,295","May 27, 2011",0.0012%,Preliminary 2011 census result
+203,Isle Of Man,"84,497","March 27, 2011",0.0012%,2011 census result
+204,Andorra,"76,098","July 1, 2013",0.0011%,Annual official estimate
+205,Dominica,"71,293","May 14, 2011",0.001%,Preliminary 2011 census result
+206,Bermuda,"64,237","May 20, 2010",0.0009%,Final 2010 census result
+207,Guernsey,"63,085","March 31, 2012",0.00088%,Annual official estimate
+208,Greenland,"56,483","July 1, 2013",0.00079%,Annual official estimate
+209,Marshall Islands,"56,086","July 1, 2013",0.00078%,Annual official estimate
+210,American Samoa,"55,519","April 1, 2010",0.00078%,Final 2010 census result
+211,Cayman Islands,"55,456","October 10, 2010",0.00078%,Final 2010 census result
+212,Saint Kitts And Nevis,"54,000","July 1, 2013",0.00076%,UN estimate
+213,Northern Mariana Islands,"53,883","April 1, 2010",0.00075%,Final 2010 census result
+214,Faroe Islands,"48,244","November 1, 2013",0.00067%,Monthly official estimate
+217,Liechtenstein,"36,942","June 30, 2013",0.00052%,Semi annual official estimate
+218,Monaco,"36,136","December 31, 2012",0.00051%,Annual official estimate
+219,San Marino,"33,540","December 31, 2013",0.00047%,Monthly official estimate
+220,Turks And Caicos Islands,"31,458","January 25, 2012",0.00044%,2012 census result
+221,Gibraltar,"30,001","December 31, 2012",0.00042%,Annual official estimate
+222,British Virgin Islands,"29,537","July 1, 2010",0.00041%,Annual official estimate
+223,Åland Islands,"28,502","December 31, 2012",0.0004%,Official estimate
+224,Caribbean Netherlands,"23,296","January 1, 2013",0.0003%,Official estimate
+225,Palau,"20,901","July 1, 2013",0.00029%,Annual official estimate
+226,Cook Islands,"14,974","December 1, 2011",0.00021%,Final 2011 census result
+227,Anguilla,"13,452","May 11, 2011",0.00019%,Preliminary 2011 census result
+228,Wallis and Futuna,"13,135","July 1, 2013",0.00018%,Annual official estimate
+229,Tuvalu,"11,323","July 1, 2013",0.00016%,Annual official estimate
+230,Nauru,"9,945","October 30, 2011",0.00014%,2011 census result
+231,Saint Barthélemy,"8,938","January 1, 2010",0.00013%,Official estimate
+232,Saint Pierre and Miquelon (France),"6,081","January 1, 2010",0.000085%,Official estimate
+233,Montserrat (UK),"4,922","May 12, 2011",0.000069%,2011 census result
+234,"Saint Helena, Ascension and Tristan da Cunha (UK)","4,000","July 1, 2013",0.000056%,UN estimate
+235,Svalbard and Jan Mayen (Norway),"2,655","September 1, 2012",0.000037%,Official estimate
+236,Falkland Islands (UK),"2,563","April 15, 2012",0.000036%,2012 census result
+237,Norfolk Island (Australia),"2,302","August 9, 2011",0.000032%,2011 census result
+238,Christmas Island (Australia),"2,072","August 9, 2011",0.000029%,2011 census result
+239,Niue (NZ),"1,613","September 10, 2011",0.000023%,Final 2011 census result
+240,Tokelau (NZ),"1,411","October 18, 2011",0.000020%,Final 2011 census result
+241,Vatican City,839,"July 1, 2012",0.000011%,Official estimate
+242,Cocos (Keeling) Islands (Australia),596,"January 14, 2014",0.0000077%,2011 census result
+243,Pitcairn Islands (UK),56,"February 1, 2013",0.00000078%,Official estimate

@@ -1,0 +1,172 @@
+<html><head><title>Runner Chloropleth</title>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+.qNaN-9 { fill:rgb(247,251,255); }
+
+.countries {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+#tooltip {
+  position: absolute;
+  width: 150px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+#tooltip.hidden {
+  display: none;
+}
+
+#tooltip p {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+</style>
+<body>
+<div id="tooltip" class="hidden">
+  <p><strong id="heading"></strong></p>
+  <p><span id="runners"></span></p>
+  <p><span id="per1m"></span></p>
+</div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js" charset="utf-8"></script>
+<script>
+countries = {"LIE": 1, "EGY": 3, "LBY": 2, "QAT": 4, "PRY": 2, "BOL": 3, "SGP": 98,
+             "PAN": 17, "PRK": 1, "TZA": 2, "ARE": 34, "HKG": 211, "HTI": 2, "TPE": 19,
+             "SVK": 29, "CHL": 172, "MYS": 14, "CHN": 79, "URY": 16, "JAM": 8, "CHE": 474,
+             "ZWE": 5, "FIN": 99, "THA": 3, "PHL": 13, "MAR": 8, "AHO": 4, "LVA": 7,
+             "KAZ": 1, "GTM": 57, "BEL": 220, "CRI": 142, "SAU": 7, "DNK": 312, "BMU": 191,
+             "CMR": 5, "DEU": 1778, "ROU": 7, "MNE": 1, "ROU": 2, "TCA": 1, "TTO": 11,
+             "VGB": 3, "BLR": 2, "GRC": 103, "AGO": 1, "MCO": 1, "IND": 17, "IDN": 1,
+             "NOR": 86, "CZE": 30, "SLV": 17, "DOM": 31, "LUX": 19, "ISR": 44, "NLD": 286,
+             "PER": 68, "ISL": 154, "ETH": 63, "COL": 151, "NPL": 1, "SRB": 1, "ECU": 89,
+             "FRA": 707, "LTU": 8, "TWN": 7, "AUS": 639, "GBR": 1837, "AUT": 165, "VEN": 145,
+             "KEN": 145, "TUR": 12, "ITA": 1168, "BRN": 1, "TUN": 1, "RUS": 92, "MEX": 1414,
+             "BRA": 481, "CYM": 21, "BRB": 3, "NGA": 1, "USA": 240937, "SWE": 222, "UKR": 9,
+             "CAN": 23070, "KOR": 1489, "BHS": 20, "CYP": 1, "PRT": 93, "HRV": 6, "POL": 109,
+             "EST": 11, "ESP": 384, "SVN": 33, "IRL": 705, "MLT": 1, "NZL": 147, "ABW": 3,
+             "JPN": 1351, "ZAF": 100, "ARM": 2, "ARG": 96, "HUN": 24}
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.eckert3()
+    .scale(205)
+    .translate([width / 2 - 40, height / 2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var pad = d3.format("02d");
+var f2 = d3.format(".2f");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "world.json")
+    .defer(d3.json, "countrydata.json")
+    .await(ready);
+
+function ready(error, world, countrydata) {
+  if (error != undefined) {
+    console.log("error in data: ", error);
+    return;
+  }
+
+  function percapita(d) { return countries[d.three] / d.population; }
+  var runnerpop = d3.values(countrydata).map(percapita);
+  var maxvalue = d3.max(runnerpop);
+  var minvalue = d3.min(runnerpop);
+
+  var logscale = d3.scale.log().domain([minvalue,maxvalue]).rangeRound([0,8]);
+
+  function quantize(i) {
+    return "q" + logscale(i) + "-9";
+  }
+
+  function colorize(d) {
+    var country = countrydata[d.id];
+    if (country == undefined) {
+      return "q1-9";
+    }
+    var percapita = countries[country.three] / country.population;
+    return quantize(percapita);
+  }
+
+  //DELETEME
+  w = world;
+  svg.append("g")
+    .attr("class", "countries")
+  .selectAll("path")
+    .data(topojson.feature(world, world.objects.countries).features)
+  .enter().append("path")
+    .attr("id", function(d) { return d.id; })
+    .attr("class", colorize)
+    .attr("d", path)
+  .on("mousemove", mousemove)
+  .on("mouseout", mouseout);
+
+  // http://bl.ocks.org/tgk/6044254
+  function mousemove(d) {
+    var xPosition = d3.event.pageX + 5;
+    var yPosition = d3.event.pageY + 5;
+
+    d3.select("#tooltip")
+      .style("left", xPosition + "px")
+      .style("top", yPosition + "px");
+
+    var id = d.id;
+    var country = countrydata[id];
+    if (country == undefined) {
+      return;
+    }
+    var name = country.name;
+
+    var runners = countries[country.three] || 0;
+    var per1m = f2((runners / country.population) * 1000000)
+
+    d3.select("#tooltip #heading")
+      .text(name);
+    d3.select("#tooltip #runners")
+      .text("runners: " + runners);
+    d3.select("#tooltip #per1m")
+      .text("per million: " + per1m);
+    d3.select("#tooltip").classed("hidden", false);
+  };
+
+  function mouseout() {
+    d3.select("#tooltip").classed("hidden", true);
+  };
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+</script>
+</body>
