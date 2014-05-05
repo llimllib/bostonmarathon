@@ -4,4 +4,21 @@ notebook:
 serve:
 	python -m SimpleHTTPServer
 
-.PHONY: notebook
+push:
+	-git branch -D gh-pages
+	git checkout --orphan gh-pages
+	git rm -rf .
+	git checkout master -- index.md maps
+	# pip install grip
+	grip index.md --export
+	git add index.html
+	git commit -m "updating gh-pages"
+	git push --force --set-upstream origin gh-pages
+	git checkout master
+
+deploy:
+	git stash
+	-$(MAKE) push
+	git stash apply
+
+.PHONY: notebook serve push deploy
