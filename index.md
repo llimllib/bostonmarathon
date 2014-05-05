@@ -15,13 +15,8 @@ Visualizations
 * by me
     * [An interactive map of the states and provinces of the runners](https://billmill.org/bostonmarathon/maps/)
     * [An interactive map of the countries of origin of the runenrs](https://billmill.org/bostonmarathon/maps/world.html)
-    * A violin plot of finish times 2001-2014:
-
-![Violin plot of finish times 2001-2014](https://raw.githubusercontent.com/llimllib/bostonmarathon/master/images/times_violin.png)
-
-    * A histogram of finishers, by gender and age:
-
-![histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
+    * A violin plot of finish times 2001-2014: ![Violin plot of finish times 2001-2014](https://raw.githubusercontent.com/llimllib/bostonmarathon/master/images/times_violin.png)
+    * A histogram of finishers, by gender and age: ![histogram of finishers by gender and age](https://pbs.twimg.com/media/BmH86ZHCQAEay54.png:large)
 
 The Data
 --------------------------------------
