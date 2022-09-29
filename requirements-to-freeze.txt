@@ -1,0 +1,6 @@
+ipython
+numpy
+matplotlib
+seaborn
+jupyter
+mpld3
